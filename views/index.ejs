@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%-include('./partials/header.ejs') %>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+
+    </head>
+
+
+    <body onload = "startTimer()">
+
+        <div class = "top">
+            <script src = "moving_img_index.js"> </script>
+            <button type="button" onclick="displayPreviousImage()"><b><</b></button>
+            <img id="img1" src="image1.jpg" alt= "Images" style="width:47%; height:83%; padding-top:1%; background-repeat:repeat-x;">
+            <img id="img2" src="image2.jpg" alt= "Images" style="width:47%; height:83%; padding-top:1%; background-repeat:repeat-x;">
+            <button type="button" onclick="displayNextImage2()"><b>></b></button>
+            <br>
+            
+            <h2><u>EAT YOUR FILL</u></h2>
+            
+            <!-- Navbar -->
+            <div id="nav_loc">
+                <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Signup</a></li>
+                </ul>
+            </div>
+            <hr color="white">
+        </div>
+
+        <div class = "right">
+            <div class = "cent">
+                <img src = "logo.png" alt = "Logo" style = "border-radius: 80%; width:100%" >
+            </div>
+            <div class ="logo">Eat Your Fill</div>
+            <br> 
+            <div class = "background"></div>
+            
+
+        </div>
+
+        <div class = "left">
+            <p style ="font-family: 'Trebuchet MS', sans-serif;">
+                Our Restaurants are well known with a substantial gathering of people, including families, kids, seniors, and business experts. 
+                Our benevolent condition is perfect for praising unique events, facilitating a business lunch, or assembling for a flavorful dinner with loved ones.
+            </p>
+            <p style ="font-family: 'Trebuchet MS', sans-serif;">
+                Open day by day for lunch and dinner, <span style="font-size:larger; font-style:italic ;">Eat your Fill</span>
+                offers a choice of naturally arranged things utilizing just the best fixing accessible. Top picks incorporate crisp fish, rotisserie chicken and pork ribs.
+            </p>
+
+            <p style ="font-family: 'Trebuchet MS', sans-serif;">
+                New prepared pot pie, strength plates of mixed greens, wood-let go pizzas, pasta, sandwiches, burgers, and more.
+                <span style="font-size:larger; font-style:italic ;">Eat your Fill's</span> heated merchandise and treats, 
+                including our Six-Layer Chocolate Cake, Scratch Carrot Cake, and delectably rich cream cheddar pies are prevalent top choices with our visitors.
+            </p>
+            
+            
+        </div>
+        
+
+        
+
+    </body>
+
+</html>

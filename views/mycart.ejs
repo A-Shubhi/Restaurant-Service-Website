@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+    <%-include('./partials/header.ejs') %>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="menu.css">
+</head>
+
+
+<body>
+<!-- <a href="/profile/<%= username%>">My profile</a> -->
+    <div class="navbar">
+        <div class = "nav_left">
+            <%-include('./partials/logo.ejs') %>
+            
+            <form action="my_profile" method="POST">
+                <input type="hidden" name="username" id = "username" value="<%= username%>">                                
+                <input type="submit" value = "My Profile" style="color:white; background-color: #333; border:none;">
+            </form>
+
+            <form action="to_menu" method="POST">
+                <input type="hidden" name="username" id = "username" value="<%= username%>">                                
+                <input type="submit" value = "Menu" style="color:white; background-color: #333; border:none;">
+            </form>
+            
+        </div>
+        <!-- <a href="/part-menu/<%=username%>">Menu</a>     -->
+                    <!-- With second method, the css is not working -->
+        <div class = "nav_right">
+            <button class = 'log_out' onclick = "showLogOutMessage()">
+                <a href ="index.html">Log Out</a>
+            </button>
+        </div>
+    </div>
+
+    <br><br><br><b>Hi <%=username%></b><h1 style="text-align:center; top:10%;">MY CART</h1>
+    
+
+    <% if(items.length>0) { %>
+
+        <% 
+        total = 0;
+        items.forEach(item => { %>
+            <div class = "flex_container">
+
+                <div class = "col2">            
+                    <b>Item:</b> <%= item.item_name%>
+                </div>
+                
+                <div class = "col2">
+                    <div class= "vert-cent">
+                        <b>Price:</b> <%= item.item_price%>
+                    </div>
+                </div>
+                
+                <div class = "col4">            
+                    <b>Quantity:</b>
+                    <form action="replace_in_cart" method="POST" onsubmit="return submitIt()">
+                        <input type="number" id="new_quant" name = "new_quant" value="<%=parseFloat(item.quantity)%>" min="1" >
+                        
+                        <input type="hidden" name="username" id = "username" value="<%= username%>">
+                        <input type="hidden" name="item_name" id = "item_name" value="<%= item.item_name%>">
+                        <input type="hidden" name="in_quant" id = "in_quant" value="<%= item.quantity%>">
+                        <input type="hidden" name="item_price" id = "item_price" value="<%= item.item_price%>">                       
+                        <input type="submit" value = "Change to new quantity" style="background-color:orange;">
+                    </form>
+                    
+                    <form action="delete_in_cart" method="POST">                        
+                        <input type="hidden" name="username" id = "username" value="<%= username%>">
+                        <input type="hidden" name="item_name" id = "item_name" value="<%= item.item_name%>">
+                        <input type="hidden" name="quantity" id = "quantity" value="<%= item.quantity%>">  
+                        <input type="submit" value = "Delete this item" style="background-color:orange">
+                    </form>
+                </div>
+
+                <div class = "col2">            
+                    <b>Amount: $</b>
+                    <%= parseFloat((parseFloat(item.quantity)*Number((item.item_price).replace(/[^0-9.-]+/g,""))).toFixed(2)) %>
+                    <% total = total+(parseFloat(item.quantity)*Number((item.item_price).replace(/[^0-9.-]+/g,"")).toFixed(2))%>
+                </div>
+            </div>
+            <hr>
+        <% }) %>
+
+        <div class = "total">
+            <b>Total amount:$<%= parseFloat(total).toFixed(2) %> </b>
+            <br>
+            <br>
+            <br>
+        
+        </div>
+        
+        
+
+        <div class="navbar_bottom">
+            <div class = "nav_bottom_right">
+                <form action="/place_order" method="POST">
+                    <input type="hidden" name="username" id = "username" value="<%=username%>">
+                    <input type="submit" value="Place your Order"  style="background-color:orange; width:50%;">
+                </form>
+            </div>
+        </div>
+        
+
+        <% } 
+            else { %> <p> <h2>No items to display</h2></p> 
+    <% } %>
+    
+    <script>
+        function showLogOutMessage() {
+            alert("Logged out from Account Successfully");
+        }
+
+        function submitIt()
+        {
+            var value = parseInt(document.getElementById('new_quant').value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value>0){
+                return true;
+            }
+            else {
+                alert('Value should be greater than 0');
+                return "return false;";}
+        }
+
+    </script>
+
+</body>
+
+</html>

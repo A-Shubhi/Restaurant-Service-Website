@@ -1,0 +1,85 @@
+.split {
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}  
+.left {
+    left: 0;
+    width: 70%;
+    background-color: rgb(249, 177, 45);
+    border: 3px solid rgb(46, 45, 45);
+    border-right:none;
+}
+
+.right {
+    right: 0;
+    width: 30%;
+    /* background-color: green;*/
+    background-image: url('background_br.jpg');
+    /* background-color: rgb(213, 146, 23); */
+    background-size:100% 100%;
+    text-align: right;
+    border: 3px solid rgb(46, 45, 45);
+}
+
+.text_r{
+    padding: 50% 0;
+    color: azure;
+    text-align: center;
+}
+
+.text_l{
+    position:absolute;
+    margin-right: 20%;
+    margin-left: 20%;
+    padding: 3% 3%;
+    top: 12%;
+    width:65%;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: lightgoldenrodyellow;
+    
+}
+
+.button1{
+    background-color: aliceblue;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 10px 20px ;
+    cursor: pointer;
+    width:50%
+}
+
+
+.button2 input{
+    height: 1.8em;
+    padding: 2% 1%;
+    width:80%
+}
+
+a:hover {
+    background-color:lightcoral;
+    color:white;
+}
+.button3{
+    padding-left: 20%;
+}
+.button3:hover{
+    color:white;
+}
+
+.button3 input{
+    
+    background-color:  rgb(240, 165, 25); 
+    padding:1.5% 4%; 
+    border-radius:10%;  
+    font-size:1.3em;
+    
+}
+
+.error{
+    color:brown;
+}

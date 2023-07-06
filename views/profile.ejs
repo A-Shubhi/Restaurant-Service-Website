@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <%-include('./partials/header.ejs') %>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="menu.css">
+</head>
+
+
+<body>
+
+    <div class="navbar">
+        <div class = "nav_left">
+            <%-include('./partials/logo.ejs') %>
+            <form action="to_menu" method="POST">
+                <input type="hidden" name="username" id = "username" value="<%= username%>">                                
+                <input type="submit" value = "Menu" style="color:white; background-color: #333; border:none;">
+            </form>
+
+            <form action="/my_cart" method="POST">
+                <input type="hidden" name="username" id = "username" value="<%=username%>">
+                <input type="submit" value="My Cart" style="color:white; background-color: #333; border:none;">
+            </form>
+        </div>
+    </div>
+
+    
+    <br><br><br><h1>Account Details</h1>
+    <button class = 'log_out' onclick = "showLogOutMessage()">
+        <a href ="index.html">Log Out</a>
+    </button>
+
+        <h4><b>Name:</b><%= name%> <br>
+            <b>Email:</b><%=email%> </h4>
+    <hr>
+
+    <h2>Order History</h2>
+
+
+    <% if(items.length>0) { %>
+        <% items.forEach(item => { %>
+            <div class = "flex_container">               
+                <div class = "col3"><b>Order Date: </b><%= item.createdAt.toDateString()%></div>
+                <div class = "col4"> <b><%= item.item_name%> </b><br></div>
+                <div class = "col3"><b>Price:</b> <%= item.item_price%></div>                
+                <div class = "col3"><b>Quantity:</b><%= item.quantity%></div>
+                <div class = "col3"><b>Amount:</b><%= parseFloat((parseFloat(item.quantity)*Number((item.item_price).replace(/[^0-9.-]+/g,""))).toFixed(2)) %></div>                
+            </div>
+            <hr>
+        <% }) %>
+        <% } else { %> <p> <h2>No orders made </h2></p> 
+    <% } %>
+    
+
+    <script>
+        function showLogOutMessage() {
+            alert("Logged out from Account Successfully");
+        }
+    </script>
+
+</body>
+
+</html>
