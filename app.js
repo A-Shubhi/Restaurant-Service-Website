@@ -10,6 +10,10 @@ const User= require('./models/user');
 
 //connect to MongoDB
 const dbURI = 'mongodb+srv://eat_your_fill:test@eatyourfill.rfebuxv.mongodb.net/eat_your_fill';
+// <username>: eat_your_fill
+// <password>: test
+// <database name>: eatyourfill
+
 mongoose.connect(dbURI)
     .then((result)=>{
         fs.readFile('./menu_list.json', 'utf-8', (err, jsonString)=>{
