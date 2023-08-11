@@ -1,5 +1,5 @@
 # Restaurant-Service-Website
-It is a restaurant service website that allows users to order food items. 
+It is a restaurant service website that allows users to order food items. (Refer the video link provoded in Demo_vid_Eat_Your_Fill.zip)
 
 # Steps to set up the project in your system : 
 
