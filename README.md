@@ -31,6 +31,11 @@ Pages in the website:
 Utilized NodeJS for server-side logic, Express.js as the web framework, and MongoDB for data storage.
 MongoDB user specifications :
 
+# Working website :
+
+https://github.com/A-Shubhi/Restaurant-Service-Website/assets/95265187/d94258c5-c512-4775-ac9e-536b07796af2
+
+
 ## Page wise Specification
 
 **1.	Home Page:**
